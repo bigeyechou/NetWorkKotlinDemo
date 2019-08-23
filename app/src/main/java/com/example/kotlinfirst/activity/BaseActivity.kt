@@ -1,23 +1,34 @@
 package com.example.kotlinfirst.activity
 
+import android.content.Context
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import com.example.kotlinfirst.app.App
 
 abstract class BaseActivity : AppCompatActivity() {
+
+  open var mContext: Context? = null
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     initBundle(intent.extras);
     setContentView(initLayout())
-    initView();
+    mContext = this
+    App.instance.addActivity(this)
+    initWidget();
     initData();
   }
 
-  abstract fun initBundle(bundle: Bundle?)
+  open fun initBundle(bundle: Bundle?) {}
 
   abstract fun initLayout(): Int
 
-  abstract fun initView()
+  open fun initWidget() {}
 
-  abstract fun initData()
+  open fun initData() {}
+
+  override fun onDestroy() {
+    super.onDestroy()
+    App.instance.removeActivity(this)
+  }
 }

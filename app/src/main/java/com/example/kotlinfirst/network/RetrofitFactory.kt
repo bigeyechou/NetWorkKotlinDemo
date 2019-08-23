@@ -1,7 +1,7 @@
 package com.zhenggzh.dream.retrofitandrxjavademo.netutils
 
 
-import com.example.kotlinfirst.app.BaseApplication
+import com.example.kotlinfirst.app.App
 import com.example.kotlinfirst.app.BaseConstant
 import com.example.kotlinfirst.network.HttpApi
 import com.example.kotlinfirst.network.NetUtil
@@ -13,15 +13,12 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.observers.DisposableObserver
 import io.reactivex.schedulers.Schedulers
 import java.io.File
-import java.io.IOException
 import java.util.concurrent.TimeUnit
 
 import okhttp3.Cache
 import okhttp3.CacheControl
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
-import okhttp3.Request
-import okhttp3.Response
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
@@ -65,7 +62,7 @@ class RetrofitFactor constructor() {
     /**
      * 设置缓存
      */
-    val cacheFile = File(BaseApplication.app!!.externalCacheDir, CACHE_NAME)
+    val cacheFile = File(App.instance!!.externalCacheDir, CACHE_NAME)
     val cache = Cache(cacheFile, (1024 * 1024 * 50).toLong())
     val cacheInterceptor = Interceptor { chain ->
       var request = chain.request()

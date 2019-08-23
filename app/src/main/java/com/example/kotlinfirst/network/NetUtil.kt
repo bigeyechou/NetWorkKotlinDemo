@@ -2,8 +2,7 @@ package com.example.kotlinfirst.network
 
 import android.content.Context
 import android.net.ConnectivityManager
-import android.net.NetworkInfo
-import com.example.kotlinfirst.app.BaseApplication
+import com.example.kotlinfirst.app.App
 /**
  * Created by 眼神 on 2018/3/27.
  * 网络请求工具类
@@ -18,7 +17,7 @@ object NetUtil {
   val isNetworkConnected: Boolean
     get() {
 
-      val mConnectivityManager = BaseApplication.app!!
+      val mConnectivityManager = App.instance
         .getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
       val mNetworkInfo = mConnectivityManager
         .activeNetworkInfo
@@ -26,10 +25,9 @@ object NetUtil {
 
     }
 
-
   val isWiFiActive: Boolean
     get() {
-      val connectivity = BaseApplication.app!!
+      val connectivity = App.instance
         .getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
       if (connectivity != null) {
         val info = connectivity.allNetworkInfo
@@ -51,8 +49,8 @@ object NetUtil {
    */
   val connectedType: Int
     get() {
-      if (BaseApplication.app!! != null) {
-        val mConnectivityManager = BaseApplication.app!!
+      if (App.instance!= null) {
+        val mConnectivityManager = App.instance
           .getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         val mNetworkInfo = mConnectivityManager.activeNetworkInfo
         if (mNetworkInfo != null && mNetworkInfo.isAvailable) {
@@ -70,7 +68,7 @@ object NetUtil {
    */
   fun isWifiConnected(context: Context?): Boolean {
     if (context != null) {
-      val mConnectivityManager = BaseApplication.app!!
+      val mConnectivityManager = App.instance
         .getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
       val mWiFiNetworkInfo = mConnectivityManager
         .getNetworkInfo(ConnectivityManager.TYPE_WIFI)
