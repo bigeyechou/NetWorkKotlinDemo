@@ -7,14 +7,31 @@
     android:layout_height="match_parent"
     tools:context=".activity.MainActivity">
 
-    <TextView
-        android:id="@+id/tv_title"
+    <android.support.v7.widget.AppCompatEditText
+        android:id="@+id/etCity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        android:hint="北京" />
+
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/btnGetWeather"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/etCity"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:text="获取天气" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tvCityWeather"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/btnGetWeather"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:text="北京天气："/>
 
 </android.support.constraint.ConstraintLayout>

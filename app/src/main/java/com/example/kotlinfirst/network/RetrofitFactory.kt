@@ -4,7 +4,7 @@ package com.zhenggzh.dream.retrofitandrxjavademo.netutils
 import com.example.kotlinfirst.app.App
 import com.example.kotlinfirst.app.BaseConstant
 import com.example.kotlinfirst.network.HttpApi
-import com.example.kotlinfirst.network.NetUtil
+import com.example.kotlinfirst.utils.NetUtil
 import com.example.kotlinfirst.network.URLConstant
 import com.orhanobut.logger.Logger
 
@@ -29,7 +29,7 @@ import retrofit2.converter.gson.GsonConverterFactory
  * 封装Retrofit配置
  */
 
-class RetrofitFactor constructor() {
+class RetrofitFactory constructor() {
 
   companion object {
     //TODO 填写自己的包名
@@ -40,14 +40,13 @@ class RetrofitFactor constructor() {
     private val DEFAULT_READ_TIMEOUT = 30
 
     //获取单例
-    val instance: RetrofitFactor
+    val instance: RetrofitFactory
       get() = SingletonHolder.INSTANCE
   }
 
   var TAG = "RetrofitFactory"
 
   var retrofit: Retrofit? = null
-    private set
 
   var httpApi: HttpApi? = null
   /**
@@ -137,7 +136,7 @@ class RetrofitFactor constructor() {
 
   //在访问HttpMethods时创建单例
   private object SingletonHolder {
-    val INSTANCE = RetrofitFactor()
+    val INSTANCE = RetrofitFactory()
 
   }
 
