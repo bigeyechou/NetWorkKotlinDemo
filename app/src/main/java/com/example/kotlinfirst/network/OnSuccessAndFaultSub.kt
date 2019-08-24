@@ -15,7 +15,7 @@ import javax.net.ssl.SSLHandshakeException
 class OnSuccessAndFaultSub constructor(mOnSuccessAndFaultListener: OnSuccessAndFaultListener): DisposableObserver<ResponseBody>(), ProgressCancelListener {
 
   private var showProgress = true
-  private lateinit var mOnSuccessAndFaultListener: OnSuccessAndFaultListener
+  private var mOnSuccessAndFaultListener: OnSuccessAndFaultListener
   private var mProgressDialog : ProgressDialog? =null
 
   init {

@@ -29,7 +29,7 @@ import retrofit2.converter.gson.GsonConverterFactory
  * 封装Retrofit配置
  */
 
-class RetrofitFactory constructor() {
+class RetrofitFactory() {
 
   companion object {
     //TODO 填写自己的包名
@@ -61,7 +61,7 @@ class RetrofitFactory constructor() {
     /**
      * 设置缓存
      */
-    val cacheFile = File(App.instance!!.externalCacheDir, CACHE_NAME)
+    val cacheFile = File(App.instance.externalCacheDir, CACHE_NAME)
     val cache = Cache(cacheFile, (1024 * 1024 * 50).toLong())
     val cacheInterceptor = Interceptor { chain ->
       var request = chain.request()

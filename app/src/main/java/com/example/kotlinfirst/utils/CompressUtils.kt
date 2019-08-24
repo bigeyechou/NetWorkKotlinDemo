@@ -87,7 +87,9 @@ object CompressUtils {
     var count = gis.read(data, 0, BUFFER_LENGTH)
     while (count != -1) {
       os.write(data, 0, count)
+      count = gis.read(data, 0, BUFFER_LENGTH)
     }
+
     os.close()
     gis.close()
     return String(os.toByteArray())
