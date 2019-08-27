@@ -1,6 +1,5 @@
 package com.example.kotlinfirst.activity
 
-import android.os.Bundle
 import android.widget.Toast
 import com.example.kotlinfirst.R
 import com.example.kotlinfirst.databean.WeatherResponseBean
@@ -30,7 +29,7 @@ class MainActivity : BaseActivity(){
     WeatherSubscribe.getWeatherDataForBody(mCityName, OnSuccessAndFaultSub(object : OnSuccessAndFaultListener {
       override fun onSuccess(result: String) {
         //成功
-        Toast.makeText(this@MainActivity, "请求成功~", Toast.LENGTH_SHORT).show()
+        Toast.makeText(mContext, "请求成功~", Toast.LENGTH_SHORT).show()
         val weather = GsonUtils.fromJson(
           result,
           WeatherResponseBean::class.java
@@ -40,7 +39,7 @@ class MainActivity : BaseActivity(){
 
       override fun onFault(errorMsg: String) {
         //失败
-        Toast.makeText(this@MainActivity, "请求失败：$errorMsg", Toast.LENGTH_SHORT).show()
+        Toast.makeText(mContext, "请求失败：$errorMsg", Toast.LENGTH_SHORT).show()
       }
 
     }, this@MainActivity))

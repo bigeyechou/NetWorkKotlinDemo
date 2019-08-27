@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".activity.MainActivity">
+    android:layout_height="match_parent">
 
-    <android.support.v7.widget.AppCompatEditText
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/etCity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -16,7 +15,7 @@
         app:layout_constraintRight_toRightOf="parent"
         android:hint="北京" />
 
-    <android.support.v7.widget.AppCompatButton
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnGetWeather"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -25,7 +24,7 @@
         app:layout_constraintRight_toRightOf="parent"
         android:text="获取天气" />
 
-    <android.support.v7.widget.AppCompatTextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvCityWeather"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -34,4 +33,4 @@
         app:layout_constraintRight_toRightOf="parent"
         tools:text="北京天气："/>
 
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

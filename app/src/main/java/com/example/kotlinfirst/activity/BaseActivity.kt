@@ -2,7 +2,7 @@ package com.example.kotlinfirst.activity
 
 import android.content.Context
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import com.example.kotlinfirst.app.App
 
 abstract class BaseActivity : AppCompatActivity() {
