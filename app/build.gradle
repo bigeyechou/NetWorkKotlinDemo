@@ -48,4 +48,7 @@ dependencies {
     implementation 'com.squareup.okhttp3:logging-interceptor:3.8.1'
     //开源日志库
     implementation 'com.orhanobut:logger:1.15'
+
+    //Kotlin MVP 插件
+    implementation 'com.github.cn-ljb:kotlin-mvp-lib:1.2.0'
 }
