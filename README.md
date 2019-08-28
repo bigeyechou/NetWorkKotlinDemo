@@ -1,9 +1,8 @@
 # AndroidKotlin
-kotlin版Retrofit+Rxjava+Okhttp网络框架，根据Java版本直接转换成kotlin
 ### 如果帮到您了请给个赞，赞多的话我会抽时间继续给大家更新支持的~
 ### 项目介绍
-    AndroidKotlin：Android网络请求框架，后期完善kotlin的资讯类的APP
-    已经迁移androidx
+    AndroidKotlin：MVP+集成Retrofit+Rxjava+Okhttp网络框架，关于github的项目
+    已升级更换为androidx
     
 ### 软件架构
     基于Retrofit+Rxjava+Okhttp封装的网络请求框架
