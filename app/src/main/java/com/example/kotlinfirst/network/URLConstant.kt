@@ -2,6 +2,6 @@ package com.example.kotlinfirst.network
 
 object URLConstant {
 
-  val BASE_URL = "https://www.tianqiapi.com/"
+  val BASE_URL = "https://api.github.com"
 
 }

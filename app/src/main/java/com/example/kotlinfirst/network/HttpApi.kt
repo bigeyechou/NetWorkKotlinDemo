@@ -10,14 +10,14 @@ import java.util.*
 
 interface HttpApi {
 
-  @GET("api")
-  fun getWeatherDataForQuery(@Query("version") version: String, @Query("city") city: String): Observable<ResponseBody>
+  /**
+   * 通过用户名获取用户信息
+   * @param userName 用户名
+   * @return  用户基本信息https://api.github.com/users/?userName=bigeyechou
+   * */
+//  @GET("/users/")
+//  fun getUserInfoByName(@Query("userName") userName:String): Observable<ResponseBody>
 
-  @GET("api")
-  fun getWeatherDataForMap(@QueryMap map: Map<String, String>): Observable<ResponseBody>
-
-  //天气预报接口测试  @GET 不支持@Body类型
-  @POST("api")
-  fun getWeatherDataForBody(@Body requestBean: BaseRequestBean<WeatherRequestBean>): Observable<ResponseBody>
-
+  @GET("/users/{userName}")
+  fun getUserInfoByName(@Path("userName") userName:String): Observable<ResponseBody>
 }
