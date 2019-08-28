@@ -1,4 +1,4 @@
-# AndroidKotlin
+# AndroidKotlin--持续更新中...
 ### 如果帮到您了请给个赞，赞多的话我会抽时间继续给大家更新支持的~
 ### 项目介绍
     AndroidKotlin：MVP+集成Retrofit+Rxjava+Okhttp网络框架，关于github的项目
