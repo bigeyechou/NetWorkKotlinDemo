@@ -15,5 +15,9 @@ kotlin版Retrofit+Rxjava+Okhttp网络框架，根据Java版本直接转换成kot
     
 ### 使用说明
     可直接使用
+    
+### 开源框架
+com.github.cn-ljb:kotlin-mvp-lib:1.2.0
+    
 
 ##### 接口不得以任何形式转载，项目可随意使用，注明出处。
