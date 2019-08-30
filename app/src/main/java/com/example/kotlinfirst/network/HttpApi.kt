@@ -19,5 +19,5 @@ interface HttpApi {
 //  fun getUserInfoByName(@Query("userName") userName:String): Observable<ResponseBody>
 
   @GET("/users/{userName}")
-  fun getUserInfoByName(@Path("userName") userName:String): Observable<ResponseBody>
+  fun getUserInfoByName(@Path("userName") userName: String): Observable<ResponseBody>
 }

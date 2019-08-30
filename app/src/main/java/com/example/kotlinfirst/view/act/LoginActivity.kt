@@ -1,18 +1,14 @@
 package com.example.kotlinfirst.view.act
 
-import android.Manifest
 import android.app.ProgressDialog
 import android.content.Intent
-import android.os.Bundle
 import android.widget.Toast
 import com.example.kotlinfirst.R
 import com.example.kotlinfirst.contract.LoginContract
 import com.example.kotlinfirst.databean.UserBean
 import com.example.kotlinfirst.presenter.LoginPresenter
-import com.example.kotlinfirst.utils.PermissionUtils
 import kotlinx.android.synthetic.main.activity_login_layout.*
 import mvp.ljb.kt.act.BaseMvpActivity
-import mvp.ljb.kt.act.BaseMvpFragmentActivity
 
 /**
  * @Author Kotlin MVP Plugin
@@ -44,12 +40,13 @@ class LoginActivity : BaseMvpActivity<LoginContract.IPresenter>(), LoginContract
   }
 
   override fun loginSuccess(userBean: UserBean) {
+    Toast.makeText(this, "登录成功！", Toast.LENGTH_SHORT).show()
     startActivity(Intent(this, MainActivity::class.java))
     finish()
   }
 
   override fun loginError(errorMsg: String?) {
-    Toast.makeText(this, "登录失败，" + errorMsg, Toast.LENGTH_SHORT).show()
+    Toast.makeText(this, "登录失败:" + errorMsg, Toast.LENGTH_SHORT).show()
   }
 
 

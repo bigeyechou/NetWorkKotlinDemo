@@ -3,6 +3,8 @@ package com.zhenggzh.dream.retrofitandrxjavademo.netutils
 
 import com.example.kotlinfirst.app.App
 import com.example.kotlinfirst.app.BaseConstant
+import com.example.kotlinfirst.app.BaseConstant.GITHUB_CLIENT_ID
+import com.example.kotlinfirst.app.BaseConstant.GITHUB_CLIENT_SECRET
 import com.example.kotlinfirst.network.HttpApi
 import com.example.kotlinfirst.utils.NetUtil
 import com.example.kotlinfirst.network.URLConstant
@@ -96,15 +98,26 @@ class RetrofitFactory() {
      */
     val headerInterceptor = Interceptor { chain ->
       val originalRequest = chain.request()
+
       val requestBuilder = originalRequest.newBuilder()
         .addHeader("Accept-Encoding", "gzip")
         .addHeader("Accept", "application/json")
         .addHeader("Content-Type", "application/json; charset=utf-8")
         .method(originalRequest.method(), originalRequest.body())
-      requestBuilder.addHeader("Authorization", "Bearer " + BaseConstant.TOKEN)//添加请求头信息，服务器进行token有效性验证
+
+      //添加请求头信息，服务器进行token有效性验证
+//      requestBuilder.addHeader("Authorization", "Bearer " + BaseConstant.TOKEN)
+
+      //添加公共参数
+      val globalParam = originalRequest.url().newBuilder()
+        .addQueryParameter("client_id",GITHUB_CLIENT_ID)
+        .addQueryParameter("client_secret",GITHUB_CLIENT_SECRET)
+      requestBuilder.url(globalParam.build())
+
       val request = requestBuilder.build()
       chain.proceed(request)
     }
+
     okHttpBuilder.addInterceptor(headerInterceptor)
 
 
