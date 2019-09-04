@@ -11,9 +11,10 @@ import androidx.appcompat.widget.AppCompatImageView
 import com.example.kotlinfirst.R
 
 class RoundImageView(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : AppCompatImageView(context, attrs, defStyleAttr) {
-  internal var width: Float = 0.toFloat()
-  internal var height: Float = 0.toFloat()
-  private val defaultRadius = 0
+
+  private  var width:Float = 0.0f
+  private var height: Float = 0.0f
+  private val defaultRadius = 10
   private var radius: Int = 0
   private var leftTopRadius: Int = 0
   private var rightTopRadius: Int = 0
@@ -21,18 +22,18 @@ class RoundImageView(context: Context, attrs: AttributeSet?, defStyleAttr: Int) 
   private var leftBottomRadius: Int = 0
 
   constructor(context: Context) : this(context, null) {
-    init(context, null)
+    initAttrs(context, null)
   }
 
   constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0) {
-    init(context, attrs)
+    initAttrs(context, attrs)
   }
 
   init {
-    init(context, attrs)
+    initAttrs(context, attrs)
   }
 
-  private fun init(context: Context, attrs: AttributeSet?) {
+  private fun initAttrs(context: Context, attrs: AttributeSet?) {
     if (Build.VERSION.SDK_INT < 18) {
       setLayerType(View.LAYER_TYPE_SOFTWARE, null)
     }

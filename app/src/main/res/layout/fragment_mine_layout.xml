@@ -26,7 +26,7 @@
         app:layout_constraintTop_toTopOf="@+id/iv_user_bg"
         app:layout_constraintBottom_toBottomOf="@+id/iv_user_bg"
         android:scaleType="centerCrop"
-        app:radius="50dp"
+        app:radius="5dp"
         android:src="@mipmap/bg_github"/>
 
     <androidx.appcompat.widget.AppCompatTextView
