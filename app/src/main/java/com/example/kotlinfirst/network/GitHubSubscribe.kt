@@ -19,8 +19,10 @@ object GitHubSubscribe {
    * 登录接口
    */
   fun login(userName: String, subscriber: DisposableObserver<ResponseBody>) {
-    val observable = RetrofitFactory.instance.httpApi!!.getUserInfoByName(userName)
-    RetrofitFactory.instance.toSubscribe(observable, subscriber)
+    val observable = RetrofitFactory.instance.httpApi?.getUserInfoByName(userName)
+    observable?.run {
+      RetrofitFactory.instance.toSubscribe(this, subscriber)
+    }
   }
 
 }

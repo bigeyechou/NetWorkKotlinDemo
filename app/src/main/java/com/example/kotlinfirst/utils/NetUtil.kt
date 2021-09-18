@@ -29,13 +29,11 @@ object NetUtil {
     get() {
       val connectivity = App.instance
         .getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-      if (connectivity != null) {
-        val info = connectivity.allNetworkInfo
-        if (info != null) {
-          for (i in info.indices) {
-            if (info[i].typeName == "WIFI" && info[i].isConnected) {
-              return true
-            }
+      val info = connectivity.allNetworkInfo
+      if (info != null) {
+        for (i in info.indices) {
+          if (info[i].typeName == "WIFI" && info[i].isConnected) {
+            return true
           }
         }
       }
@@ -49,13 +47,11 @@ object NetUtil {
    */
   val connectedType: Int
     get() {
-      if (App.instance!= null) {
-        val mConnectivityManager = App.instance
-          .getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-        val mNetworkInfo = mConnectivityManager.activeNetworkInfo
-        if (mNetworkInfo != null && mNetworkInfo.isAvailable) {
-          return mNetworkInfo.type
-        }
+      val mConnectivityManager = App.instance
+        .getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+      val mNetworkInfo = mConnectivityManager.activeNetworkInfo
+      if (mNetworkInfo != null && mNetworkInfo.isAvailable) {
+        return mNetworkInfo.type
       }
       return -1
     }
@@ -67,14 +63,12 @@ object NetUtil {
    * @return
    */
   fun isWifiConnected(context: Context?): Boolean {
-    if (context != null) {
-      val mConnectivityManager = App.instance
-        .getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-      val mWiFiNetworkInfo = mConnectivityManager
-        .getNetworkInfo(ConnectivityManager.TYPE_WIFI)
-      if (mWiFiNetworkInfo != null) {
-        return mWiFiNetworkInfo.isAvailable
-      }
+    val mConnectivityManager = App.instance
+      .getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+    val mWiFiNetworkInfo = mConnectivityManager
+      .getNetworkInfo(ConnectivityManager.TYPE_WIFI)
+    if (mWiFiNetworkInfo != null) {
+      return mWiFiNetworkInfo.isAvailable
     }
     return false
   }

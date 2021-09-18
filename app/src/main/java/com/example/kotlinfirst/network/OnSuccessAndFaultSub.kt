@@ -25,7 +25,7 @@ class OnSuccessAndFaultSub constructor(mOnSuccessAndFaultListener: OnSuccessAndF
   constructor(mOnSuccessAndFaultListener: OnSuccessAndFaultListener,context: Context):this(mOnSuccessAndFaultListener){
     this.mOnSuccessAndFaultListener = mOnSuccessAndFaultListener;
     mProgressDialog= ProgressDialog(context)
-    mProgressDialog!!.setMessage("正在加载请稍后~")
+    mProgressDialog?.setMessage("正在加载请稍后~")
   }
   constructor(mOnSuccessAndFaultListener: OnSuccessAndFaultListener,context: Context,showProgress:Boolean):this(mOnSuccessAndFaultListener){
     this.mOnSuccessAndFaultListener = mOnSuccessAndFaultListener;
@@ -34,13 +34,13 @@ class OnSuccessAndFaultSub constructor(mOnSuccessAndFaultListener: OnSuccessAndF
   }
 
   private fun showProgressDialog(){
-    if (showProgress && null != mProgressDialog) {
-      mProgressDialog!!.show()
+    if (showProgress) {
+      mProgressDialog?.show()
     }
   }
   private fun dismissProgressDialog() {
-    if (showProgress && null != mProgressDialog) {
-      mProgressDialog!!.dismiss()
+    if (showProgress) {
+      mProgressDialog?.dismiss()
     }
   }
 

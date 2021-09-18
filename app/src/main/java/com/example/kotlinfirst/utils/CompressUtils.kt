@@ -42,7 +42,7 @@ object CompressUtils {
   fun compress(ins: InputStream, os: OutputStream) {
     val gos = GZIPOutputStream(os)
     val data = ByteArray(BUFFER_LENGTH)
-    var count = ins.read(data, 0, BUFFER_LENGTH)
+    val count = ins.read(data, 0, BUFFER_LENGTH)
 
     while (count != -1) {
       gos.write(data, 0, count)
@@ -64,7 +64,7 @@ object CompressUtils {
   fun decompress(ins: InputStream, os: OutputStream) {
     val gis = GZIPInputStream(ins)
     val data = ByteArray(BUFFER_LENGTH)
-    var count = gis.read(data, 0, BUFFER_LENGTH)
+    val count = gis.read(data, 0, BUFFER_LENGTH)
     while (count != -1) {
       os.write(data, 0, count)
     }
@@ -212,7 +212,7 @@ object CompressUtils {
       if (!fileOrDirectory.isDirectory) {
         // 压缩文件
         val buffer = ByteArray(4096)
-        var bytes_read = ins!!.read(buffer)
+        val bytes_read = ins!!.read(buffer)
         ins = FileInputStream(fileOrDirectory)
         //实例代表一个条目内的ZIP归档
         val entry = ZipEntry(curPath + fileOrDirectory.name)

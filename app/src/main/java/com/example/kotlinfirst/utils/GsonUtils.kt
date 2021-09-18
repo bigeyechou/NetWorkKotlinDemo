@@ -18,7 +18,7 @@ object GsonUtils {
       if (gson == null) {
         gson = Gson()
       }
-      return gson!!.fromJson(result, clazz)
+      return gson?.fromJson(result, clazz)
     } catch (e: Exception) {
 
       return null

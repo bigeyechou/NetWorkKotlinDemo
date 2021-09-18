@@ -144,7 +144,7 @@ class RetrofitFactory() {
       .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
       .baseUrl(BASE_URL)
       .build()
-    httpApi = retrofit!!.create<HttpApi>(HttpApi::class.java!!)
+    httpApi = retrofit?.create<HttpApi>(HttpApi::class.java)
   }
 
   //在访问HttpMethods时创建单例
@@ -160,7 +160,7 @@ class RetrofitFactory() {
       .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
       .baseUrl(baseUrl)
       .build()
-    httpApi = retrofit!!.create<HttpApi>(HttpApi::class.java!!)
+    httpApi = retrofit?.create<HttpApi>(HttpApi::class.java)
   }
 
   /**

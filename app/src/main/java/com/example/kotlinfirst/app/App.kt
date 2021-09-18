@@ -5,8 +5,8 @@ import android.app.Application
 
 class App : Application() {
 
+  var activityList : ArrayList<Activity>?=null
   companion object {
-    var activityList : ArrayList<Activity>?=null
     lateinit var instance: App
   }
 
@@ -20,11 +20,7 @@ class App : Application() {
    * 增加Activity
    */
   fun addActivity(act: Activity) {
-    if (activityList == null) {
-      activityList = ArrayList()
-    } else {
       activityList?.add(act)
-    }
   }
 
   /**
